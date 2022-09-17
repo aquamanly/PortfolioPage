@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+    <style>
+         body{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+        background-color: #f5f6f1;
+    }
+    .lista{
+        justify-content: center;
+    }
+    .lista ol{
+        list-style: none;
+        counter-reset: my-counter;
+        margin: 0rem;
+        padding:  0rem 0rem 0rem 1.5rem;
+    }
+    .lista li{
+        counter-increment: my-counter;
+        border-left: solid 2px #cdcdcd;
+      /*  border-bottom: solid 2px #cdcdcd; */
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: "icon:text";
+        align-items: start;
+    }
+    .lista li:before {
+        content: counter(my-counter);
+        font-weight: bold;
+        background-color: #cdcdcd;
+        border: 3px solid #f5f6f1;
+        border-radius: 50px;
+        font-size: 20px;
+        padding: 0.8rem 1.4rem;
+        color: #fff;
+        margin-left: -2.0rem;
+        margin-right: auto;
+        grid-area: icon;
+    }
+    .card{
+        grid-area: text;
+        margin-left: 4rem;
+        border-radius: 0px;
+        box-shadow: 0 0 5px 1px #ddd;
+        margin-top: 0.5rem;
+    }
+    .card-html .card-header:after {
+        right: 100%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-right-color: #e65127;
+        border-width: 10px;
+        top: 10px;
+    }
+    .card-css .card-header:after {
+        right: 100%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-right-color: #379ad6;
+        border-width: 10px;
+        top: 10px;
+    }
+    .card-js .card-header:after {
+        right: 100%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-right-color: #f2bf26;
+        border-width: 10px;
+        top: 10px;
+    }
+    .card-php .card-header:after {
+        right: 100%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-right-color: #8b92bd;
+        border-width: 10px;
+        top: 10px;
+    }
+    .card-bootstrap .card-header:after {
+        right: 100%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-right-color: #7952b3;
+        border-width: 10px;
+        top: 10px;
+    }
+    .card .card-header{
+        background-color: #8abe3e;
+        color: #fff;
+        font-size: 22px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+    .btn-success{
+        background-color: #8abe3e;
+        color: #fff;
+        border-color: #8abe3e;
+        border-radius: 0px;
+    }
+    .card-css .card-header, .card-css .btn-success{
+        background-color: #379ad6;
+        border-color: #379ad6;
+    }
+    .card-html .card-header, .card-html .btn-success{
+        background-color: #e65127;
+        border-color: #e65127;
+    }
+    .card-js .card-header, .card-js .btn-success{
+        background-color: #f2bf26;
+        border-color: #f2bf26;
+    }
+    .card-bootstrap .card-header, .card-bootstrap .btn-success{
+        background-color: #7952b3;
+        border-color: #7952b3;
+    }
+    .card-php .card-header, .card-php .btn-success{
+        background-color: #8b92bd;
+        border-color: #8b92bd;
+    }
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark  ">
+        <div class="container-fluid">
+            <a id="logoLink" class="navbar-brand" href="index.html"></a>
+            <img src="https://avatars.githubusercontent.com/u/4418296?v=4" alt="Avatar Logo" style="width:40px;"
+                class="rounded-pill">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutMe.html">About
+                            Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="whatIDo.html">What I
+                            Do</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="photoGallery.html">Photo
+                            Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="lifeSoFar.html">Life So
+                            Far</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactMe.html">Contact
+                            Me</a>
+                    </li>
+
+                </ul>
+            </div>
+            </a>
+        </div>
+    </nav>
+
+
+
+    <section class="">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <div class="lista">
+                    <ol>
+                        <li>
+                           <div class="card card-html">
+                               <div class="card-header">
+                                   <i class="fab fa-html5"></i> HTML
+                               </div>
+                               <div class="card-body">
+                                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi consequatur, debitis deserunt iste labore modi, nihil non, qui quos ratione rem velit. Aliquid et, ipsam numquam obcaecati quisquam vel voluptatibus?
+                               </div>
+                               <div class="card-footer">
+                               <div class="clearfix">
+                                   <div class="float-left">
+                                       
+                                   </div>
+                                   <div class="float-right">
+                                       <button class="btn btn-success">Botão de Acesso</button>
+                                   </div>
+                               </div>
+                               </div>
+                           </div>
+                        </li>
+                        <li>
+                            <div class="card card-css">
+                                <div class="card-header">
+                                    <i class="fab fa-css3-alt"></i>  CSS
+                                </div>
+                                <div class="card-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi consequatur, debitis deserunt iste labore modi, nihil non, qui quos ratione rem velit. Aliquid et, ipsam numquam obcaecati quisquam vel voluptatibus?
+                                </div>
+                                <div class="card-footer">
+                                    <div class="clearfix">
+                                        <div class="float-left">
+                                          
+                                        </div>
+                                        <div class="float-right">
+                                            <button class="btn btn-success">Botão de Acesso</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card card-js">
+                                <div class="card-header">
+                                    <i class="fab fa-js-square"></i> JAVASCRIPT
+                                </div>
+                                <div class="card-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi consequatur, debitis deserunt iste labore modi, nihil non, qui quos ratione rem velit. Aliquid et, ipsam numquam obcaecati quisquam vel voluptatibus?
+                                </div>
+                                <div class="card-footer">
+                                    <div class="clearfix">
+                                        <div class="float-left">
+                                        
+                                        </div>
+                                        <div class="float-right">
+                                            <button class="btn btn-success">Botão de Acesso</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card card-bootstrap">
+                                <div class="card-header">
+                                    <i class="fab fa-bimobject"></i> BOOTSTRAP
+                                </div>
+                                <div class="card-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi consequatur, debitis deserunt iste labore modi, nihil non, qui quos ratione rem velit. Aliquid et, ipsam numquam obcaecati quisquam vel voluptatibus?
+                                </div>
+                                <div class="card-footer">
+                                    <div class="clearfix">
+                                        <div class="float-left">
+                                           
+                                        </div>
+                                        <div class="float-right">
+                                            <button class="btn btn-success">Botão de Acesso</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+    
+                            <div class="card card-php">
+                                <div class="card-header">
+                                    <i class="fab fa-php"></i>  PHP
+                                </div>
+                                <div class="card-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi consequatur, debitis deserunt iste labore modi, nihil non, qui quos ratione rem velit. Aliquid et, ipsam numquam obcaecati quisquam vel voluptatibus?
+                                </div>
+                                <div class="card-footer">
+                                    <div class="clearfix">
+                                        <div class="float-left">
+                                         
+                                        </div>
+                                        <div class="float-right">
+                                            <button class="btn btn-success">Botão de Acesso</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+    
+                    </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
