@@ -51,25 +51,22 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container pt-3">
         <div class="row">
             <div class="accordion col-8" id="accordionExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Accordion Item #1
+                            Currently
                         </button>
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                         data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the
-                            collapse plugin adds the appropriate classes that we use to style each element. These
-                            classes control the overall appearance, as well as the showing and hiding via CSS
-                            transitions. You can modify any of this with custom CSS or overriding our default variables.
-                            It's also worth noting that just about any HTML can go within the
-                            <code>.accordion-body</code>, though the transition does limit overflow.
+                            <strong>I'm happy I'm here at Revature.</strong> I like working here.
+                             I look forward to working here and using this experience to develop other programmers
+                              in Baltimore and abroad.
                         </div>
                     </div>
                 </div>
@@ -77,18 +74,16 @@
                     <h2 class="accordion-header" id="headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Accordion Item #2
-                        </button>
+                            On my free time
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                         data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <strong>This is the second item's accordion body.</strong> It is hidden by default, until
-                            the collapse plugin adds the appropriate classes that we use to style each element. These
-                            classes control the overall appearance, as well as the showing and hiding via CSS
-                            transitions. You can modify any of this with custom CSS or overriding our default variables.
-                            It's also worth noting that just about any HTML can go within the
-                            <code>.accordion-body</code>, though the transition does limit overflow.
+                            <strong>I -- like many of you -- run Dungeons and Dragons.</strong> I've run very easy campaigns.
+                            I typically have newbies at my table. I got into the hobby thanks to Geek and Sundry's Titansgrave.
+                             I've been a short term fan of shows like Critical Role. Currently my favorite kind of missions to 
+                             run are straight forward or one-shot heists. Below are some of my attempts at including fetch API.
+                              Like a Dungeons and Dragons 5E API call and a Cat API call that I learned a lot from.
                         </div>
                     </div>
                 </div>
@@ -96,33 +91,126 @@
                     <h2 class="accordion-header" id="headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Accordion Item #3
+                            My Sundays
                         </button>
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                         data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the
-                            collapse plugin adds the appropriate classes that we use to style each element. These
-                            classes control the overall appearance, as well as the showing and hiding via CSS
-                            transitions. You can modify any of this with custom CSS or overriding our default variables.
-                            It's also worth noting that just about any HTML can go within the
-                            <code>.accordion-body</code>, though the transition does limit overflow.
+                            <strong>I work the streaming video for my church.</strong> It helps to reach the members 
+                            who need to stay away from crowds since covid. Also it helps to reach the sick, elderly, those
+                             who haven't been able to find a church. And for me, it's kind of a pain to work the stream since
+                              the tools we're using have changed and <em>ALWAYS</em> fail me. 
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-4">
-                <img class="img-fluid" src="https://img.freepik.com/free-photo/young-smiling-african-american-man-pretty-asian-woman-dreamily-reading-book-together-modern-co-working-space_574295-1943.jpg"
+                <img class="img-fluid"
+                    src="https://img.freepik.com/free-photo/young-smiling-african-american-man-pretty-asian-woman-dreamily-reading-book-together-modern-co-working-space_574295-1943.jpg"
                     alt="" srcset="">
             </div>
         </div>
     </div>
 
-
-
-
+    <div class="container" style="text-align: center ;">
+        <h1 >My API experiments</h1>
     </div>
+
+    <div class="container row pt-3 d-flex justify-content-evenly    ">
+        <div class="col-6" >
+            <h3>A list of classes</h3>
+                <p>The list begins</p>
+                <ul id="dnd">
+
+                </ul>
+        </div>
+        
+        <div class="col-6">
+            <select onchange="showBreedImage(value)" name="breed_selector" id="breed_selector">
+            </select>
+
+            <div>
+                <a id="wiki_link" target="_blank"></a>
+                <div id="breed_json"></div>
+            </div>
+
+            <div>
+                <img id="breed_image" class="img-fluid pb-3"></img>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const urls = `https://api.thecatapi.com/v1/breeds`;
+        const api_key = "live_AR5unbASbJXaatCWuwoVUMhA1ifjFBrqkuqn6EB6RzO3L0qhoDEKy1OZ0I42NVO8";
+        let storedBreeds = []
+
+        fetch("https://www.dnd5eapi.co/api/classes/", {
+            headers: {
+                Accept: "application/json"
+            }
+        }).then((x) => { return x.json() })
+            .then((data) => {
+                console.log(data.results[1].name);
+                
+                for (var i = 0; i < data.results.length; i++) {
+
+                    var li = document.createElement('li');
+                    document.getElementById('dnd').appendChild(li);
+                    li.innerHTML = li.innerHTML + data.results[i].name;
+                }
+            })
+
+
+
+
+        fetch(urls, {
+            headers: {
+                'x-api-key': api_key
+            }
+        })
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+
+                //filter to only include those with an `image` object
+                data = data.filter(img => img.image?.url != null)
+
+                storedBreeds = data;
+
+                for (let i = 0; i < storedBreeds.length; i++) {
+                    const breed = storedBreeds[i];
+                    let option = document.createElement('option');
+
+                    //skip any breeds that don't have an image
+                    if (!breed.image) continue
+
+                    //use the current array index
+                    option.value = i;
+                    option.innerHTML = `${breed.name}`;
+                    document.getElementById('breed_selector').appendChild(option);
+
+                }
+                //show the first breed by default
+                showBreedImage(0)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        function showBreedImage(index) {
+            document.getElementById("breed_image").src = storedBreeds[index].image.url;
+
+            document.getElementById("breed_json").textContent = storedBreeds[index].temperament
+
+
+            document.getElementById("wiki_link").href = storedBreeds[index].wikipedia_url
+            document.getElementById("wiki_link").innerHTML = storedBreeds[index].wikipedia_url
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
