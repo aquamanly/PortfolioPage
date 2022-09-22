@@ -6,7 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css"><link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/bb3bbe27a6.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 
@@ -52,25 +56,37 @@
 
 <div class="container">
 <!--Section: Contact v.2-->
-<div class="container">
-    <h1>FormSubmit Demo</h1>
-    <form target="_blank" action="https://formsubmit.co/aharnold@gmail.com" method="POST">
-      <div class="form-group">
-        <div class="form-row">
-          <div class="col">
-            <input type="text" name="name" class="form-control" placeholder="Full Name" required>
-          </div>
-          <div class="col">
-            <input type="email" name="email" class="form-control" placeholder="Email Address" required>
-          </div>
+<section class="mb-4">
+
+    <!--Section heading-->
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Contact Me</h2>
+    <!--Section description-->
+    <p class="text-center w-responsive mx-auto mb-5">If you'd like to get to know me, just email me.</p>
+
+    <div class="row">
+
+        <!--Grid column-->
+       
+
+        <!--Grid column-->
+        <div class="col-md-12 text-center">
+            <ul class="list-unstyled mb-0">
+                <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                    <p>Baltimore, MD, 21216, USA</p>
+                </li>
+
+                <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                    <p>+1 443-804-9009</p>
+                </li>
+
+                <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                    <p>aharnold@gmail.com</p>
+                </li>
+            </ul>
         </div>
-      </div>
-      <div class="form-group">
-        <textarea placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-lg btn-dark btn-block">Submit Form</button>
-    </form>
-  </div>
+        <!--Grid column-->
+
+    </div>
 
 </section>
 <!--Section: Contact v.2-->

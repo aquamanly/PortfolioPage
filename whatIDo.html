@@ -7,7 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="index.css">
+ 
     <title>Document</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
 </head>
 
 <body>
@@ -53,8 +57,8 @@
 
     <div class="container pt-3">
         <div class="row">
-            <div class="accordion col-8" id="accordionExample">
-                <div class="accordion-item">
+            <div class="accordion col-8 " id="accordionExample">
+                <div class="accordion-item shadow">
                     <h2 class="accordion-header" id="headingOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -70,7 +74,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="accordion-item">
+                <div class="accordion-item shadow">
                     <h2 class="accordion-header" id="headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -87,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="accordion-item">
+                <div class="accordion-item shadow">
                     <h2 class="accordion-header" id="headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -117,16 +121,53 @@
         <h1 >My API experiments</h1>
     </div>
 
-    <div class="container row pt-3 d-flex justify-content-evenly    ">
-        <div class="col-6" >
+    <div class="container row pt-3 mx-auto   ">
+        <div class="col-3" >
             <h3>A list of classes</h3>
                 <p>The list begins</p>
                 <ul id="dnd">
 
                 </ul>
         </div>
-        
         <div class="col-6">
+            <h2>Hardcore Rules</h2>
+            <ul id="dndClass">
+                <p id="nameGen"></p>
+                <div class="col-6 row">
+                    <select name="ClassSelector" id="cSel"></select>
+                    <p id="cSelHp"></p>
+                </div>
+                
+
+                </select>
+                <select name="RaceSelector" id="rSel">
+
+                </select>
+                <table ><!--I think the scores should be used to determine things-->
+                    <thead>
+                        <tr>
+                            <td>Str</td>
+                            <td>Dex</td>
+                            <td>Con</td>
+                            <td>Int</td>
+                            <td>Wis</td>
+                            <td>Cha</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="scores">
+
+                        </tr>
+                    </tbody>
+                </table>
+                <button id="calculate">Calculate</button>
+
+               
+
+            </ul>
+        </div>
+        
+        <div class="col-3">
             <select onchange="showBreedImage(value)" name="breed_selector" id="breed_selector">
             </select>
 
@@ -141,11 +182,13 @@
         </div>
     </div>
 
-
+    <script src="dndScript.js"></script>
     <script>
         const urls = `https://api.thecatapi.com/v1/breeds`;
         const api_key = "live_AR5unbASbJXaatCWuwoVUMhA1ifjFBrqkuqn6EB6RzO3L0qhoDEKy1OZ0I42NVO8";
         let storedBreeds = []
+
+
 
         fetch("https://www.dnd5eapi.co/api/classes/", {
             headers: {
@@ -163,8 +206,7 @@
                 }
             })
 
-
-
+       
 
         fetch(urls, {
             headers: {
