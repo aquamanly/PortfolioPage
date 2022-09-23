@@ -94,6 +94,7 @@ $("#cSel").change(function () {
 
 $("#rSel").change(function () {
     scoreIncrease();
+    //what if the class has a subclass
 })
 
 //************* */
@@ -112,7 +113,60 @@ let scoreIncrease = () => {
             type: "GET",
             dataType: "json",
         }).done(function (raceBonus) {
-            console.log(raceBonus);
+            
+            //if only one score mod found
+            if(raceBonus.ability_bonuses.length < 2){
+                //find the score mod name
+                var abScore = raceBonus.ability_bonuses[0].ability_score.name;
+
+                console.log(raceBonus.ability_bonuses[0].ability_score.name);
+                console.log(abScore);
+                console.log(raceBonus.ability_bonuses[0].bonus);
+                var abScoreInt = parseInt(raceBonus.ability_bonuses[0].bonus);
+                console.log("the score bonus is in"+abScore);
+                console.log(raceBonus.ability_bonuses)
+                //find the cell index of that score and selects the cell index number
+                console.log($("td:contains("+abScore+")")[0].cellIndex);
+                console.log($("td:contains('STR')"));
+                console.log($("td:contains(6)"));
+                console.log($("#scores"));
+                console.log(parseInt( $("#scores")[0].cells[3].innerText)+abScoreInt);
+                //store the cells index number as a value
+                var abScoreIndex = $("td:contains("+abScore+")")[0].cellIndex;
+                //show the abScoreIndex
+                console.log("The abScoreIndex is " + abScoreIndex);
+                console.log($("#scores")[0].cells[abScoreIndex].innerText);
+                $("#scores")[0].cells[abScoreIndex].innerText = parseInt( $("#scores")[0].cells[abScoreIndex].innerText)+abScoreInt;
+            }else if (raceBonus.ability_bonuses.length>1) {
+                //console.log($("td:contains('"+abScore+"')"));
+                console.log("more");
+                console.log(raceBonus);
+                //ability_bonuses[0].ability_score.name
+               var scrNames =raceBonus.ability_bonuses ;
+               scrNames.forEach(element => {
+                //find the score mod name
+                var abScore = element.ability_score.name;
+                console.log(abScore);
+                console.log(element.ability_score.name);
+                console.log(abScore);
+                console.log(element.bonus);
+                var abScoreInt = parseInt(element.bonus);
+                console.log("the score bonus is in"+abScore);
+                console.log(raceBonus.ability_bonuses)
+                //find the cell index of that score and selects the cell index number
+                console.log($("td:contains("+abScore+")")[0].cellIndex);
+                console.log($("td:contains('STR')"));
+                console.log($("td:contains(6)"));
+                console.log($("#scores"));
+                console.log(parseInt( $("#scores")[0].cells[3].innerText)+abScoreInt);
+                //store the cells index number as a value
+                var abScoreIndex = $("td:contains("+abScore+")")[0].cellIndex;
+                //show the abScoreIndex
+                console.log("The abScoreIndex is " + abScoreIndex);
+                console.log($("#scores")[0].cells[abScoreIndex].innerText);
+                $("#scores")[0].cells[abScoreIndex].innerText = parseInt( $("#scores")[0].cells[abScoreIndex].innerText)+abScoreInt;
+               })
+            }
         })
 
     })
@@ -149,3 +203,26 @@ let hitDice = () => {
 
     });
 }
+
+
+let DndRaceScoreBonus=()=>{
+    //capture the ability score bonus
+}
+//select the optional bonus
+//create a modifier for the scores
+//apply bonuses to the scores
+//create a list of skills
+//random background
+//add skills(maybe randomly)
+//remove those skills from the list
+//random personality
+//add class
+//roll tables where you can.
+//Check if spellcaster
+//random roll for cantrips
+//random roll for spells
+//check inventory list for character
+//determine attack values
+//determine armor class
+//determine spellcasting attack
+//determine spell saves
